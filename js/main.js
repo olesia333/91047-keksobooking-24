@@ -1,25 +1,24 @@
 function getRandomInclusive(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min; //Максимум и минимум включаются
-};
+  return Math.random() * (max - min) + min;
+}
 
 function checkValidity(checkNumber) {
-  return (checkNumber < 0) ? console.log("Ошибка ввода: число должно быть > 0") : true;
-};
+  if (checkNumber > 0 || checkNumber==0) {
+    return checkNumber;
+  }
+  throw new Error('Ошибка: число '+checkNumber+' - не соответствие условию.');
+}
 
 function getRandomIntegerNumber(min, max) {
-  if (checkValidity(min) && checkValidity(max)) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    console.log(getRandomInclusive(min, max));
-  }
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(getRandomInclusive(checkValidity(min), checkValidity(max)));
 }
 
-function getRandomFloatNumber(min, max, decimalPlaces) {
-  decimalPlaces = Math.ceil(decimalPlaces);
-  if (checkValidity(min) && checkValidity(max) && checkValidity(decimalPlaces)) {
-    console.log(getRandomInclusive(min, max).toFixed(decimalPlaces));
-  }
+function getRandomFloat(min, max, dec) {
+  dec = Math.floor(dec);
+  return getRandomInclusive(checkValidity(min), checkValidity(max)).toFixed(checkValidity(dec));
 }
 
-getRandomIntegerNumber(0, 20);
-getRandomFloatNumber(1.2, 3, 2);
+console.log(getRandomIntegerNumber(0, 10));
+console.log(getRandomFloat(1.1, 1.15, 8));
