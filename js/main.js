@@ -5,10 +5,10 @@ function getRandomInclusive(min, max) {
 
 /*Функция валидации случайного числа */
 function checkValidity(checkNumber) {
-  if (checkNumber > 0 || checkNumber==0) {
+  if (checkNumber > 0 || checkNumber===0) {
     return checkNumber;
   }
-  throw new Error('Ошибка: число '+checkNumber+' - не соответствие условию.');
+  throw new Error(checkNumber);
 }
 
 /*Функция генерации случайного ЦЕЛОГО числа */
@@ -29,16 +29,18 @@ function getRandomFloat(min, max, dec) {
 const ARR_LENGTH = 10;
 
 /*Генерация массива, из которого будут браться номера изображений аватарок*/
-let USER_PIC = [];
+const USER_PIC = [];
 
 /*Функция, которая будет генерировать случайные числа, не повторяясь*/
 function getRandomArrayIntegerNumber (array, count) {
-  if (array.length >= count) return array;
-  let newNumber = getRandomIntegerNumber(0, count)+1;
+  if (array.length >= count) {
+    return array
+  };
+  const newNumber = getRandomIntegerNumber(0, count)+1;
   if (array.indexOf(newNumber) < 0) {
     array.push(newNumber);
   }
-  getRandomArrayIntegerNumber (array, count);
+  getRandomArrayIntegerNumber (array, count)
 };
 
 /*Заполнение массива аватарок случайными числами */
@@ -46,7 +48,7 @@ getRandomArrayIntegerNumber(USER_PIC, ARR_LENGTH);
 
 /*Функция создания объекта Автор*/
 const createAuthor = () => {
-  numericAvatar= USER_PIC.splice(getRandomIntegerNumber(0, USER_PIC.length-1), 1);
+  let numericAvatar= USER_PIC.splice(getRandomIntegerNumber(0, USER_PIC.length-1), 1);
   return {
     avatar: `img/avatars/user${numericAvatar < 10 ? `0${numericAvatar}` : numericAvatar}.png`,
   };
