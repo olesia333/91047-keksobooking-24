@@ -40,4 +40,4 @@ function getRandomArrayIntegerNumber (array, count) {
 /*Функция генерации массива случайных чисел*/
 const getRandomArray = (array) => array.slice(0, getRandomIntegerNumber(1, array.length));
 
-export {getRandomIntegerNumber, getRandomFloat ,getRandomArrayIntegerNumber, getRandomArray};
+export {getRandomIntegerNumber, getRandomFloat, getRandomArrayIntegerNumber, getRandomArray};
