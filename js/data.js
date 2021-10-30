@@ -39,7 +39,7 @@ getRandomArrayIntegerNumber(USER_PIC, ARR_LENGTH);
 
 /*Функция создания объекта Автор*/
 const createAuthor = () => {
-  let numericAvatar= USER_PIC.splice(getRandomIntegerNumber(0, USER_PIC.length-1), 1);
+  const numericAvatar= USER_PIC.splice(getRandomIntegerNumber(0, USER_PIC.length-1), 1);
   return {
     avatar: `img/avatars/user${numericAvatar < 10 ? `0${numericAvatar}` : numericAvatar}.png`,
   };
@@ -55,9 +55,9 @@ const createLocation = () => {
 
 /*Функция генерации данных*/
 const generateData = () => {
-  let author = createAuthor();
+  const author = createAuthor();
   /*let offer = createOffer();*/
-  let location = createLocation();
+  const location = createLocation();
   return {
     author,
     offer: {
