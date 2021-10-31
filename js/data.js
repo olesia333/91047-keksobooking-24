@@ -46,12 +46,10 @@ const createAuthor = () => {
 };
 
 /*Функция создания объекта Локация*/
-const createLocation = () => {
-  return {
-    lat: getRandomFloat(35.65, 35.7, 5),
-    lng: getRandomFloat(139.7, 139.8, 5),
-  };
-};
+const createLocation = () => ({
+  lat: getRandomFloat(35.65, 35.7, 5),
+  lng: getRandomFloat(139.7, 139.8, 5),
+});
 
 /*Функция генерации данных*/
 const generateData = () => {
@@ -73,8 +71,8 @@ const generateData = () => {
       description: 'Удобное расположение. В шаговой доступности: магазины, рестораны и места для занятий спортом',
       photos: PHOTOS[getRandomIntegerNumber(0,(PHOTOS.length-1))],
     },
-    location
-  }
-}
+    location,
+  };
+};
 
 export {ARR_LENGTH, generateData};
