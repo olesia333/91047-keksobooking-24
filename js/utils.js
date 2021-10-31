@@ -28,13 +28,13 @@ function getRandomFloat(min, max, dec) {
 /*Функция, которая будет генерировать случайные числа, не повторяясь*/
 function getRandomArrayIntegerNumber (array, count) {
   if (array.length >= count) {
-    return array
+    return array,
   }
   const newNumber = getRandomIntegerNumber(0, count)+1;
   if (array.indexOf(newNumber) < 0) {
     array.push(newNumber);
   }
-  getRandomArrayIntegerNumber (array, count)
+  getRandomArrayIntegerNumber (array, count);
 }
 
 /*Функция генерации массива случайных чисел*/
